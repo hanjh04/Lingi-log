@@ -14,10 +14,12 @@ vue create lingi-log
 npm add -D vuepress
 
 # run
-vuepress dev
+# vuepress dev
+./node_modules/vuepress/bin/vuepress.js dev
 
-#build
-vuepress build
+# build
+# vuepress build
+./node_modules/vuepress/bin/vuepress.js build
 ```
 
 ### using components in vuepress
@@ -36,6 +38,9 @@ idx|Todo|설명|add date|complete date
 3|theme 적용|footer 적용|01.05|
 4|외부 plugin 적용|algolia|01.06
 5|외부 plugin 적용|disqus|01.06
+6|메인 화면 꾸미기|메인 화면|01.08|
+7|build & deploy 스크립트 작성|01.08|
+8|vuepress 파일들 디렉터리 이동|01.08|
 
 ---
 * Blog URL
