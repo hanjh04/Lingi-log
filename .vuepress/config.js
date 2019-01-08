@@ -32,8 +32,7 @@ module.exports = {
                 ]
             }],
             '/posts/': [{
-                title: 'Posts',
-                collapsable: false,
+                title: 'Others',
                 children: [
                     "180829_vscode 환경설정",
                     "180907_페이지 교체 알고리즘",
@@ -55,16 +54,18 @@ module.exports = {
                     "181230_docker-mongodb",
                     "181230_macbook 환경설정",
                 ]
+            }, {
+                title: 'Algorithm',
+                children: []
+            }, {
+                title: 'DB',
+                children: []
+            }, {
+                title: 'Linux',
+                children: []
             }],
             // fallback
-            '/': [{
-                title: 'Root',
-                children: [
-                    '', /* / */
-                    'contact', /* /contact.html */
-                    'about' /* /about.html */
-                ]
-            }]
+            '/': []
         }
     },
     head: [
