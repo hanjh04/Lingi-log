@@ -1,16 +1,18 @@
 module.exports = {
     title: "Lingi-log",
     description: "Welcome!",
-    base: "/",
+    base: "/docs/",
     // theme: "@vuepress/vue",
     themeConfig: {
         logo: "/thumbnail.png",
         footer: "jh",
         nav: [
             { "text": "Posts", "link": "/posts/", "position": "left", "external": false },
-            { "text": "foo", "link": "/foo/", "position": "left", "external": false },
-            { "text": "Say hi!", "link": "mailto:hanjh04@gmail.com", "position": "right", "external": true },
-            { "text": "About", "link": "/About", "position": "right", "external": false }
+            { "text": "Algorithm", "link": "/algorithm/", "position": "left", "external": false },
+            { "text": "Linux", "link": "/linux/", "position": "left", "external": false },
+            { "text": "DB", "link": "/db/", "position": "left", "external": false },
+            { "text": "About Blog", "link": "/blog/", "position": "left", "external": false },
+            { "text": "About", "link": "/about", "position": "right", "external": false }
         ],
         lastUpdated: 'Last Updated',
         // algolia: {
@@ -22,17 +24,9 @@ module.exports = {
         //     }
         // },
         sidebar: {
-            '/foo/': [{
-                title: 'Foo',
-                collapsable: false,
-                children: [
-                    "",
-                    "one",
-                    "two"
-                ]
-            }],
             '/posts/': [{
                 title: 'Others',
+                collapsable: false,
                 children: [
                     "180829_vscode 환경설정",
                     "180907_페이지 교체 알고리즘",
@@ -54,15 +48,34 @@ module.exports = {
                     "181230_docker-mongodb",
                     "181230_macbook 환경설정",
                 ]
-            }, {
-                title: 'Algorithm',
-                children: []
-            }, {
-                title: 'DB',
-                children: []
-            }, {
+            }],
+            '/linux/': [{
                 title: 'Linux',
-                children: []
+                collapsable: false,
+                children: [
+
+                ]
+            }],
+            '/algorithm/': [{
+                title: 'Algorithm',
+                collapsable: false,
+                children: [
+
+                ]
+            }],
+            '/db/': [{
+                title: 'DB',
+                collapsable: false,
+                children: [
+
+                ]
+            }],
+            '/blog/': [{
+                title: 'About Blog',
+                collapsable: false,
+                children: [
+
+                ]
             }],
             // fallback
             '/': []

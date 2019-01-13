@@ -36,11 +36,12 @@ idx|Todo|설명|add date|complete date
 1|navigation|navigation bar에 항목 추가|01.03|01.06
 2|side bar|side bar 활용방법 찾고 적용|01.03|01.06
 3|theme 적용|footer 적용|01.05|
-4|외부 plugin 적용|algolia|01.06
-5|외부 plugin 적용|disqus|01.06
-6|메인 화면 꾸미기|메인 화면|01.08|
+4|~~외부 plugin 적용~~|~~algolia~~|~~01.06~~|vuepress 내장 검색 기능 사용
+5|외부 plugin 적용|disqus|01.06|01.13
+6|메인 화면 꾸미기|메인 화면|01.08|01.13
 7|build & deploy 스크립트 작성|01.08|
-8|vuepress 파일들 디렉터리 이동|01.08|
+8|vuepress 파일들 디렉터리 이동||01.08|01.13
+9|스크립트 작성|자동으로 nav bar에 목록 추가 해주는 스크립트 작성|01.13|
 
 ---
 * Blog URL
@@ -50,4 +51,7 @@ idx|Todo|설명|add date|complete date
     * https://vuepress.vuejs.org/guide/using-vue.html#browser-api-access-restrictions
 
 * Sidebar Nav 자동으로 추가하기
-    * https://stackoverflow.com/questions/53262091/automatically-add-new-posts-to-the-sidebar
+    * https://stacoverflow.com/questions/53262091/automatically add-new-posts-to-the-sidebar
+
+---
+<Comment></Comment>
