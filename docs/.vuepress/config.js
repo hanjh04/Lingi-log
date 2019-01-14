@@ -1,17 +1,17 @@
 module.exports = {
     title: "Lingi-log",
-    description: "Welcome!",
-    base: "/docs/",
+    description: "Blog About Study",
+    base: "/",
     // theme: "@vuepress/vue",
     themeConfig: {
         logo: "/thumbnail.png",
         footer: "jh",
         nav: [
+            { "text": "블로그 개발기", "link": "/blog/", "position": "left", "external": false },
             { "text": "Posts", "link": "/posts/", "position": "left", "external": false },
             { "text": "Algorithm", "link": "/algorithm/", "position": "left", "external": false },
             { "text": "Linux", "link": "/linux/", "position": "left", "external": false },
             { "text": "DB", "link": "/db/", "position": "left", "external": false },
-            { "text": "About Blog", "link": "/blog/", "position": "left", "external": false },
             { "text": "About", "link": "/about", "position": "right", "external": false }
         ],
         lastUpdated: 'Last Updated',
@@ -71,7 +71,7 @@ module.exports = {
                 ]
             }],
             '/blog/': [{
-                title: 'About Blog',
+                title: '블로그 개발기',
                 collapsable: false,
                 children: [
 
