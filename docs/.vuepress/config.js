@@ -60,7 +60,7 @@ module.exports = {
                 title: 'Algorithm',
                 collapsable: false,
                 children: [
-
+                    "boj_1003"
                 ]
             }],
             '/db/': [{
