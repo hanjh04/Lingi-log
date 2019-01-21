@@ -14,3 +14,11 @@
 * vuex
 * vue-router
 ### 설계
+### Todos
+* router
+
+## Project setup
+### project Create
+```bash
+npm i vuex vue-router axios 
+```

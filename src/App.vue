@@ -3,30 +3,21 @@
     <app-nav></app-nav>
     <app-header></app-header>
     <router-view></router-view>
-    <app-footer></app-footer>
   </div>
 </template>
 
 <script>
-import AppNav from '@/components/AppNav'
-import AppHeader from '@/components/AppHeader'
-import AppFooter from '@/components/AppFooter'
+import AppNav from '@/components/layout/AppNav'
+import AppHeader from '@/components/layout/AppHeader'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    AppNav,
+    AppHeader
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
