@@ -50,10 +50,10 @@ module.exports = {
                 ]
             }],
             '/linux/': [{
-                title: 'Linux',
+                title: 'Linux 운영',
                 collapsable: false,
                 children: [
-
+                    "install_gcc_without_internet_connection"
                 ]
             }],
             '/algorithm/': [{
