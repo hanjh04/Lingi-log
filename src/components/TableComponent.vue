@@ -1,14 +1,18 @@
 <template>
     <div>
         <thead>
-            <th>a</th>
-            <th>a</th>
-            <th>a</th>
+            <tr>
+                <th>a</th>
+                <th>a</th>
+                <th>a</th>
+            </tr>
         </thead>
         <tbody>
-            <td>b</td>
-            <td>b</td>
-            <td>b</td>
+            <tr>
+                <td>b</td>
+                <td>b</td>
+                <td>b</td>
+            </tr>
         </tbody>
     </div>
 </template>

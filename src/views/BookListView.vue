@@ -1,5 +1,6 @@
 <template>
     <div>
+        <span>Book List</span>
         <filter-component></filter-component>
         <table-component></table-component>
         <div class="btnArea">
@@ -8,6 +9,7 @@
             <button>Modify</button>
             <button>Detail</button>
         </div>
+        <router-view></router-view>
     </div>
 </template>
 
