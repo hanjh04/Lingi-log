@@ -2,10 +2,14 @@ import { fetchBookList } from '../api/index'
 
 export default {
     FETCH_BOOKLIST(context) {
+        var bookList = []
         return fetchBookList()
-            .then(response => {
-                context.commit('SET_BOOKLIST', response.data);
-                return response;
+            .then(querySnapshot => {
+                querySnapshot.forEach(doc => {
+                    bookList.push(doc.data())
+                })
+                context.commit('SET_BOOKLIST', bookList);
+                // return querySnapshot;
             })
             .catch(error => console.log(error))
     }

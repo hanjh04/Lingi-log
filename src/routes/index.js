@@ -5,6 +5,7 @@ import BookDetailComponent from '@/components/BookDetailComponent';
 import ServerListView from '@/views/ServerListView';
 import ServerDetailComponent from '@/components/ServerDetailComponent';
 import NOTFOUND from '@/components/NOTFOUND';
+import store from '../store/index.js';
 
 Vue.use(VueRouter);
 
@@ -17,6 +18,11 @@ export default new VueRouter({
         path: '/bookList',
         component: BookListView,
         name: 'bookList',
+        beforeEnter(routeTo, routeFrom, next) {
+            store.dispatch('FETCH_BOOKLIST')
+                .then(() => next())
+                .catch(() => console.log('load booklist fail'))
+        },
         children: [{
             path: 'bookDetail',
             component: BookDetailComponent

@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import store from '../store/index.js';
+import { mapGetters } from 'vuex';
 import TableComponent from '@/components/TableComponent'
 import FilterComponent from '@/components/FilterComponent'
 
@@ -21,6 +23,9 @@ export default {
     components:{
         TableComponent,
         FilterComponent
+    },
+    computed:{
+        ...mapGetters(['fetchedBookList'])
     }
 }
 </script>
