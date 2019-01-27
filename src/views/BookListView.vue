@@ -2,8 +2,9 @@
     <div>
         <span>Book List</span>
         <filter-component></filter-component>
-        <table-component></table-component>
+        <table-component :itemList=fetchedBookList :columnNmList=getColumns() :rowCnt=fetchedBookList.length></table-component>
         <div class="btnArea">
+            <router-link to="./bookList/bookDetail" tag="button">Addd</router-link>
             <button>Add</button>
             <button>Del</button>
             <button>Modify</button>
@@ -25,7 +26,10 @@ export default {
         FilterComponent
     },
     computed:{
-        ...mapGetters(['fetchedBookList'])
+        ...mapGetters(['fetchedBookList']),
+    },
+    methods:{
+        getColumns:(() => ['title', 'image', 'publisher', 'keywords', 'owner', 'buy date'])
     }
 }
 </script>

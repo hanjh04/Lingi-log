@@ -13,7 +13,7 @@ export default new VueRouter({
     mode: 'history',
     routes: [{
         path: '/',
-        component: BookListView
+        redirect: '/bookList'
     }, {
         path: '/bookList',
         component: BookListView,
