@@ -2,7 +2,6 @@
     <div>
         <span>Server List</span>
         <filter-component></filter-component>
-        <table-component></table-component>
         <div class="btnArea">
             <button>Add</button>
             <button>Del</button>
@@ -14,12 +13,10 @@
 </template>
 
 <script>
-import TableComponent from '@/components/TableComponent'
-import FilterComponent from '@/components/FilterComponent'
+import FilterComponent from '@/components/common/FilterComponent'
 
 export default {
     components:{
-        TableComponent,
         FilterComponent
     }
 }

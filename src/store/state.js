@@ -1,3 +1,4 @@
 export default {
-    bookList: []
+    bookList: [],
+    bookDetail: {}
 }

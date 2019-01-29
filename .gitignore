@@ -3,6 +3,7 @@ node_modules
 /dist
 .vuepress/dist
 /docs/.vuepress/dist
+/DB/dbConfig.js
 
 # local env files
 .env.local

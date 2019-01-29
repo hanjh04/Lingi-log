@@ -9,11 +9,11 @@ function fetchBookList() {
     return firebaseDB.collection('bookList').orderBy('idx').get()
 }
 
-function fetchPosts() {
-    return firebaseDB.collection('posts').orderBy('idx').get()
+function fetchBookDetail(idx) {
+    return firebaseDB.collection('bookList').doc(idx).get();
 }
 
 export {
     fetchBookList,
-    fetchPosts
+    fetchBookDetail
 }

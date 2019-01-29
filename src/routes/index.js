@@ -1,10 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import BookListView from '@/views/BookListView';
-import BookDetailComponent from '@/components/BookDetailComponent';
-import ServerListView from '@/views/ServerListView';
-import ServerDetailComponent from '@/components/ServerDetailComponent';
-import NOTFOUND from '@/components/NOTFOUND';
+import BookManagementView from '@/views/BookManagementView';
+import ServerMonitoringView from '@/views/ServerMonitoringView';
+import BookDetailComponent from '@/components/bookManagement/BookDetailComponent';
+import BookListComponent from '@/components/bookManagement/BookListComponent';
+import ServerDetailComponent from '@/components/serverMonitoring/ServerDetailComponent';
+import NOTFOUND from '@/components/common/NOTFOUND';
 import store from '../store/index.js';
 
 Vue.use(VueRouter);
@@ -13,23 +14,37 @@ export default new VueRouter({
     mode: 'history',
     routes: [{
         path: '/',
-        redirect: '/bookList'
+        redirect: '/bookManagement'
     }, {
-        path: '/bookList',
-        component: BookListView,
-        name: 'bookList',
-        beforeEnter(routeTo, routeFrom, next) {
-            store.dispatch('FETCH_BOOKLIST')
-                .then(() => next())
-                .catch(() => console.log('load booklist fail'))
-        },
+        path: '/bookManagement',
+        component: BookManagementView,
+        name: 'bookManagement',
         children: [{
-            path: 'bookDetail',
-            component: BookDetailComponent
+            path: '',
+            component: BookListComponent,
+            name: 'bookList',
+            beforeEnter(routeTo, routeFrom, next) {
+                store.dispatch('FETCH_BOOKLIST')
+                    .then(() => next())
+                    .catch(() => console.log('load booklist fail'))
+            },
+        }, {
+            path: 'addBook',
+            component: BookDetailComponent,
+            name: 'addBook'
+        }, {
+            path: 'bookDetail/:idx',
+            component: BookDetailComponent,
+            name: 'bookDetail',
+            beforeEnter(routeTo, routeFrom, next) {
+                store.dispatch('FETCH_BOOKDETAIL', routeTo.params.idx.toString())
+                    .then(() => next())
+                    .catch(() => console.log('load book detail fail'))
+            }
         }]
     }, {
         path: '/serverList',
-        component: ServerListView,
+        component: ServerMonitoringView,
         name: 'serverList',
         children: [{
             path: 'serverDetail',
@@ -40,3 +55,10 @@ export default new VueRouter({
         component: NOTFOUND
     }]
 })
+
+/*{
+        path: '/bookList/bookDetail',
+        component: BookDetailComponent,
+        name: 'bookDetail'
+    }, 
+    */
