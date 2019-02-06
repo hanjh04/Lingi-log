@@ -13,47 +13,54 @@ Vue.use(VueRouter);
 export default new VueRouter({
     mode: 'history',
     routes: [{
-        path: '/',
-        redirect: '/bookManagement'
-    }, {
-        path: '/bookManagement',
-        component: BookManagementView,
-        name: 'bookManagement',
-        children: [{
-            path: '',
-            component: BookListComponent,
-            name: 'bookList',
-            beforeEnter(routeTo, routeFrom, next) {
-                store.dispatch('FETCH_BOOKLIST')
-                    .then(() => next())
-                    .catch(() => console.log('load booklist fail'))
-            },
+            path: '/',
+            redirect: '/bookManagement'
         }, {
-            path: 'addBook',
-            component: BookDetailComponent,
-            name: 'addBook'
-        }, {
-            path: 'bookDetail/:idx',
-            component: BookDetailComponent,
-            name: 'bookDetail',
-            beforeEnter(routeTo, routeFrom, next) {
-                store.dispatch('FETCH_BOOKDETAIL', routeTo.params.idx.toString())
-                    .then(() => next())
-                    .catch(() => console.log('load book detail fail'))
-            }
-        }]
-    }, {
-        path: '/serverList',
-        component: ServerMonitoringView,
-        name: 'serverList',
-        children: [{
-            path: 'serverDetail',
-            component: ServerDetailComponent
-        }]
-    }, {
-        path: '*',
-        component: NOTFOUND
-    }]
+            path: '/bookManagement',
+            component: BookManagementView,
+            name: 'bookManagement',
+            children: [{
+                path: '',
+                component: BookListComponent,
+                name: 'bookList',
+                beforeEnter(routeTo, routeFrom, next) {
+                    store.dispatch('FETCH_BOOKLIST')
+                        .then(() => next())
+                        .catch(() => console.log('load booklist fail'))
+                },
+            }, {
+                path: 'addBook',
+                component: BookDetailComponent,
+                name: 'addBook'
+            }, {
+                path: 'bookDetail/:idx',
+                component: BookDetailComponent,
+                name: 'bookDetail',
+                beforeEnter(routeTo, routeFrom, next) {
+                    console.log('dfds??')
+                    store.dispatch('FETCH_BOOKDETAIL', routeTo.params.idx.toString())
+                        .then(() => next())
+                        .catch(() => console.log('load book detail fail'));
+                    // store.dispatch('FETCH_IMAGE', routeTo.params.imgUrl)
+                    //     .then(() => next())
+                    //     .catch(() => console.log('fail to load book image'))
+                }
+            }]
+        },
+        {
+            path: '/serverList',
+            component: ServerMonitoringView,
+            name: 'serverList',
+            children: [{
+                path: 'serverDetail',
+                component: ServerDetailComponent
+            }]
+        },
+        {
+            path: '*',
+            component: NOTFOUND
+        }
+    ]
 })
 
 /*{

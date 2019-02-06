@@ -1,8 +1,6 @@
 <template>
-  <header class="">
-    <div class="">
-      Work Helper
-    </div>
+  <header class="header">
+      <!-- <h1>Work Helper</h1> -->
   </header>
 </template>
 
@@ -16,5 +14,14 @@ export default {
 </script>
 
 <style>
-
+/* header {
+  text-align: left;
+  background: #1a66bc;
+  color: white;
+}
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+} */
 </style>

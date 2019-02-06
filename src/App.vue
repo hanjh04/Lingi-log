@@ -9,6 +9,7 @@
 <script>
 import AppNav from '@/components/layout/AppNav'
 import AppHeader from '@/components/layout/AppHeader'
+import 'bootstrap/dist/css/bootstrap.css'
 
 export default {
   name: 'app',

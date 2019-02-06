@@ -1,4 +1,5 @@
 export default {
     bookList: [],
-    bookDetail: {}
+    bookDetail: {},
+    image: new Blob()
 }

@@ -1,8 +1,11 @@
 export default {
     fetchedBookList(state) {
-        return state.bookList
+        return state.bookList;
     },
     fetchedBookDetail(state) {
-        return state.bookDetail
+        return state.bookDetail;
+    },
+    fetchedImage(state) {
+        return state.image;
     }
 }

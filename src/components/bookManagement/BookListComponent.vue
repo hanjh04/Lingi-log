@@ -4,43 +4,44 @@
         <filter-component></filter-component>
         <search-component></search-component>
         <div>
-            <colgroup> 
-                <col width="20px"/>
-                <col width="20%"/>
-                <col width="20%"/>
-                <col width="20%"/>
-                <col width="10"/>
-                <col width="15"/>
-                <col width="15"/>
-            </colgroup>
-            <thead>
-                <tr>
-                    <th class="chkbox all"><input type="checkbox" @click="selectAll" v-model="allSelected"></th>
-                    <th v-for="(columnNm, index) in columnNmList" :key="index">
-                        {{columnNm.toUpperCase()}}
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="item in fetchedBookList" :key="item.idx" @click="getDetail(item.idx, $event, item)">
-                    <td class="chkbox"><input type="checkbox" :value="item.idx" v-model="itemIdx"></td>
-                    <td class="title">{{item.title}}</td>
-                    <td class="image"><img :src=item.imgUrl alt="./"></td>
-                    <td class="publisher">{{item.publisher}}</td>
-                    <td class="keyword">
-                        <li v-for="keyword in item.keywords" :key="keyword.index">
-                            {{keyword}}
-                        </li>
-                    </td>
-                    <td class="owner">{{item.owner}}</td>
-                    <td class="buyDate">{{item.buyDate.seconds}}</td>
-                </tr>
-            </tbody>
+            <table class="table table-hover">
+                <colgroup> 
+                    <col width="20px"/>
+                    <col width="20%"/>
+                    <col width="20%"/>
+                    <col width="20%"/>
+                    <col width="10"/>
+                    <col width="15"/>
+                    <col width="15"/>
+                </colgroup>
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="chkbox all"><input type="checkbox" @click="selectAll" v-model="allSelected"></th>
+                        <th v-for="(columnNm, index) in columnNmList" :key="index">
+                            {{columnNm.toUpperCase()}}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in fetchedBookList" :key="item.idx" @click="getDetail(item.idx, $event, item, item.imgUrl)">
+                        <td class="chkbox"><input type="checkbox" :value="item.idx" v-model="itemIdx"></td>
+                        <td class="title">{{item.title}}</td>
+                        <td class="image"><img class="img-thumbnail" :src=item.imgUrl alt="./"></td>
+                        <td class="publisher">{{item.publisher}}</td>
+                        <td class="keyword">
+                            <li v-for="keyword in item.keywords" :key="keyword.index">
+                                {{keyword}}
+                            </li>
+                        </td>
+                        <td class="owner">{{item.owner}}</td>
+                        <td class="buyDate">{{item.buyDate.seconds}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="btnArea">
             <router-link to="./bookManagement/addBook" tag="button">Add</router-link>
-            <button>Del</button>
-            <button>Modify</button>
+            <button @click="delBookInfo()">Del</button>
         </div>
     </div>
 </template>
@@ -49,7 +50,7 @@
 import FilterComponent from '@/components/common/FilterComponent'
 import SearchComponent from '@/components/common/SearchComponent'
 import store from '../../store/index.js';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
     components:{
@@ -77,6 +78,7 @@ export default {
         }
     },
     methods:{
+        ...mapActions({deleteBookInfo:'DELETE_BOOKINFO'}),
         selectAll() {
             this.itemIdx = []
             if (!this.allSelected) {
@@ -85,14 +87,31 @@ export default {
                 }
             }
         },
-        getDetail(idx, event, item) {
+        getDetail(idx, event, item, imgUrl) {
             if(event.target.type !== 'checkbox') {
                 this.$router.push({
                     name:'bookDetail',
-                    params:{idx:idx},
+                    params:{idx:idx, imgUrl:imgUrl},
                 })
             }
-            
+        },
+        delBookInfo(){
+            if(this.itemIdx.length === 0){
+                alert('click at least one item')
+            }else{
+                const res = confirm('really want to delete this row?')
+                if(res){
+                    this.itemIdx.forEach(idx => {
+                        this.deleteBookInfo(idx)
+                        .then(() => {
+                            // this.$router.push({
+
+                            // })
+                            this.$router.replace(this.$router.path || '/');
+                        })
+                    })
+                }
+            }
         }
     }
 }
