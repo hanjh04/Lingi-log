@@ -46,20 +46,54 @@
             </div>
             <!-- <li>image : </li> -->
         </div>
-        <input type="submit" value="Save">
+        <input type="submit" class="btn btn-primary mb-2" value="Save">
         
     </form>
     <form v-else>
-        <ul>
-            <button @click.prevent="toggle()">Edit</button>
-            <li>title : {{bookInfo.title}}</li>
-            <li>buyer : {{bookInfo.buyer}}</li>
-            <li>author : {{bookInfo.author}}</li>
-            <li>content : </li>
-            <li>subject : </li>
-            <li>buy date : <input type="date" name="buyDate" id="buyDate" :value="bookInfo.buyDate"></li>
-            <li>image : <div id="imgArea"></div></li>
-        </ul>
+        <div class="form-group row" >
+            <label for="title" class="col-sm-2 col-form-label">TITLE</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control-plaintext" id="title" :value="bookInfo.title" readonly>
+            </div>
+            <!-- <li>title : <input type="text" name="title" id="title" placeholder="book title" v-model="bookInfo.title"></li> -->
+        </div>
+        <div class="form-group row" >
+            <label for="title" class="col-sm-2 col-form-label">BUYER</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control-plaintext" name="buyer" id="buyer" :value="bookInfo.buyer" readonly>
+            </div>
+        </div>
+        <div class="form-group row" >
+            <label for="title" class="col-sm-2 col-form-label">AUTHOR</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control-plaintext" name="author" id="author" :value="bookInfo.author" readonly>
+            </div>
+        </div>
+        <div class="form-group row" >
+            <label for="title" class="col-sm-2 col-form-label">CONTENT</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control-plaintext" name="content" id="content" :value="bookInfo.content" readonly>
+            </div>
+        </div>
+        <div class="form-group row" >
+            <label for="title" class="col-sm-2 col-form-label">SUBJECT</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control-plaintext" name="subject" id="subject" :value="bookInfo.subject" readonly>
+            </div>
+        </div>
+        <div class="form-group row" >
+            <label for="title" class="col-sm-2 col-form-label">BUY DATE</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control-plaintext" name="buyDate" id="buyDate" v-model="bookInfo.buyDate" readonly>
+            </div>
+        </div>
+        <div class="form-group row" >
+            <label for="title" class="col-sm-2 col-form-label">IMAGE</label>
+            <div class="col-sm-10">
+                <div id="imgArea" ></div>
+            </div>
+        </div>
+        <button class="btn btn-primary mb-2" @click.prevent="toggle()">Edit</button>
     </form>
 </div>
 </template>

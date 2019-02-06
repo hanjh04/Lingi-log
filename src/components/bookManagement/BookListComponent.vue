@@ -29,9 +29,13 @@
                         <td class="image"><img class="img-thumbnail" :src=item.imgUrl alt="./"></td>
                         <td class="publisher">{{item.publisher}}</td>
                         <td class="keyword">
-                            <li v-for="keyword in item.keywords" :key="keyword.index">
-                                {{keyword}}
-                            </li>
+                            <ul>
+                                <span v-for="keyword in item.keywords" :key="keyword.index" class="badge badge-info">
+                                    {{keyword}}
+                                </span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </ul>
+                            <!-- </li> -->
                         </td>
                         <td class="owner">{{item.owner}}</td>
                         <td class="buyDate">{{item.buyDate.seconds}}</td>
@@ -40,8 +44,8 @@
             </table>
         </div>
         <div class="btnArea">
-            <router-link to="./bookManagement/addBook" tag="button">Add</router-link>
-            <button @click="delBookInfo()">Del</button>
+            <router-link to="./bookManagement/addBook" class="btn btn-outline-primary" tag="button">Add</router-link>
+            <button class="btn btn-outline-primary" @click="delBookInfo()">Del</button>
         </div>
     </div>
 </template>
