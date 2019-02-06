@@ -1,6 +1,5 @@
 <template>
     <div>
-        <span>Book List</span>
         <filter-component></filter-component>
         <search-component></search-component>
         <div>
