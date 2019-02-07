@@ -7,11 +7,11 @@
                 <colgroup> 
                     <col width="20px"/>
                     <col width="20%"/>
+                    <col width="15%"/>
                     <col width="20%"/>
-                    <col width="20%"/>
-                    <col width="10"/>
-                    <col width="15"/>
-                    <col width="15"/>
+                    <col width="10%"/>
+                    <col width="15%"/>
+                    <col width="15%"/>
                 </colgroup>
                 <thead class="thead-dark">
                     <tr>
@@ -37,7 +37,7 @@
                             <!-- </li> -->
                         </td>
                         <td class="owner">{{item.owner}}</td>
-                        <td class="buyDate">{{item.buyDate.seconds}}</td>
+                        <td class="buyDate">{{new Date(item.buyDate.seconds*1000).toISOString().split("T")[0]}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -123,6 +123,6 @@ export default {
 <style>
 .image img{
     width:auto;
-    height:200px;
+    height:150px;
 }
 </style>

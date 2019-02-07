@@ -4,7 +4,7 @@
         <div class="form-group row" >
             <label for="title" class="col-sm-2 col-form-label">TITLE</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="title" placeholder="Title">
+                <input type="text" class="form-control" id="title" placeholder="Title"  v-model="bookInfo.title">
             </div>
             <!-- <li>title : <input type="text" name="title" id="title" placeholder="book title" v-model="bookInfo.title"></li> -->
         </div>
@@ -147,12 +147,14 @@ export default {
     methods:{
         ...mapMutations({initBookinfo:'INIT_BOOKINFO'}),
         ...mapActions({saveBookInfo:'SAVE_BOOKINFO', saveBookImage:'SAVE_BOOKIMAGE'}),
-        setBookInfo({title, buyer, author, content, subject, imgUrl, buyDate}){
+        setBookInfo({title, owner, author, content, subject, imgUrl, buyDate}){
             this.bookInfo.title = title || '';
-            this.bookInfo.buyer = buyer || '';
+            this.bookInfo.buyer = owner || '';
             this.bookInfo.content = content || '';
             this.bookInfo.subject = subject || '';
             this.bookInfo.imgUrl = imgUrl || '';
+            this.bookInfo.author = author || '';
+            
             if(buyDate === undefined || buyDate.seconds === undefined){
                 this.bookInfo.buyDate = new Date().toISOString().split("T")[0];
             }else{
@@ -248,5 +250,8 @@ export default {
 </script>
 
 <style>
-
+#imgArea img{
+    width:auto;
+    height:200px;
+}
 </style>
