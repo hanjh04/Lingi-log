@@ -4,7 +4,7 @@
         <search-component></search-component>
         <div>
             <table class="table table-hover">
-                <colgroup> 
+                <colgroup>
                     <col width="20px"/>
                     <col width="20%"/>
                     <col width="15%"/>
